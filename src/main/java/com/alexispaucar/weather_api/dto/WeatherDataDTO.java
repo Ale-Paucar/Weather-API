@@ -3,10 +3,12 @@ package com.alexispaucar.weather_api.dto;
 import com.alexispaucar.weather_api.service.WeatherDataDTODeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.io.Serializable;
 import java.util.List;
 
 @JsonDeserialize(using = WeatherDataDTODeserializer.class)
-public class WeatherDataDTO {
+public class WeatherDataDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String city;
     private String region;
     private String country;

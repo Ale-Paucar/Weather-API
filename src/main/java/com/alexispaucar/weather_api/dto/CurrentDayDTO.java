@@ -3,9 +3,12 @@ package com.alexispaucar.weather_api.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CurrentDayDTO {
+public class CurrentDayDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
     @JsonProperty("datetime")
     private String dateTime;
     @JsonProperty("temp")

@@ -5,6 +5,7 @@ import com.alexispaucar.weather_api.service.WeatherDataParserService;
 import com.alexispaucar.weather_api.service.WeatherService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,7 @@ public class WeatherApiController {
 
 
     @GetMapping("/weather")
+    @Cacheable("weather-search")
     public WeatherDataDTO getWeatherData(@RequestParam String city) throws JsonProcessingException {
         return weatherService.getWeather(city);
     }
