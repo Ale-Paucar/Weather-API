@@ -2,7 +2,7 @@ package com.alexispaucar.weather_api.service;
 
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
+
 import org.springframework.stereotype.Service;
 
 import org.springframework.web.client.RestClientException;
@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Service
+
 public class ExternalWeatherApiService {
     @Value("${weather.api.key}")
     private String apiKey;
