@@ -1,5 +1,6 @@
 package com.alexispaucar.weather_api.controllers;
 
+import com.alexispaucar.weather_api.exceptions.TooManyRequestException;
 import com.alexispaucar.weather_api.models.ApiError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,5 +49,14 @@ public class HandlerExceptionController {
         return ResponseEntity.status(HttpStatus.BAD_GATEWAY.value()).body(apiError);
     }
 
+    @ExceptionHandler(TooManyRequestException.class)
+    public ResponseEntity<ApiError> handlerTooManyRequests (TooManyRequestException e){
+        ApiError apiError = new ApiError();
+        apiError.setMessage(e.getMessage());
+        apiError.setError("Too Many requests");
+        apiError.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
+        apiError.setTimestamp(LocalDate.now().toString());
 
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS.value()).body(apiError);
+    }
 }
