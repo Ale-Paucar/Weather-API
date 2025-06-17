@@ -14,6 +14,9 @@ import org.springframework.web.client.RestTemplate;
 public class ExternalWeatherApiService {
     @Value("${weather.api.key}")
     private String apiKey;
+    @Value("${weather.api.baseURL}")
+    private String baseURL;
+
     private final RestTemplate restTemplate;
 
 
@@ -25,7 +28,7 @@ public class ExternalWeatherApiService {
 
     public String fetchWeatherData(String city){
 
-        String url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"+city+"?key="+apiKey;
+        String url = baseURL + city + "?key=" +apiKey;
         try {
             return restTemplate.getForObject(url, String.class);
         } catch (RestClientException e) {
