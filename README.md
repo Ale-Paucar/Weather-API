@@ -1,10 +1,9 @@
-# Weather API ☀️
-
+# Weather API ️
+## https://roadmap.sh/projects/weather-api-wrapper-service
 A REST API built with **Spring Boot** that consumes data from an external weather API, transforms it, and exposes custom endpoints. It includes validation, error handling, caching, and custom deserialization.
 
 > ⚠️ **Important Note**: This project **requires an external API key** (not included in the repository) to function properly. However, you can still understand and adapt its structure easily.
 
----
 
 ## 🚀 Key Features
 
@@ -14,7 +13,6 @@ A REST API built with **Spring Boot** that consumes data from an external weathe
 * Rate limiting with `Bucket4j`
 * Caching using `Redis`
 
----
 
 ## 💠 Technologies Used
 
@@ -31,11 +29,12 @@ A REST API built with **Spring Boot** that consumes data from an external weathe
 ## 📌 Requirements
 
 * Java 17+
+* Docker
 * Maven 3.8+
 * Redis (required for caching)
 * Visual Crossing API key
 
----
+
 
 ## 📁 Project Structure
 
@@ -55,7 +54,6 @@ src/
 └── test/                         # Unit tests
 ```
 
----
 
 ## 🛆 Local Setup & Running
 
@@ -99,7 +97,7 @@ Or, if Maven is installed globally:
 mvn spring-boot:run
 ```
 
----
+
 
 ## 📬 Available Endpoint (example)
 
